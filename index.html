@@ -105,6 +105,7 @@
             width: 70px;
             height: 60px;
             border: 10px solid #000;
+            border-color: #000 #000 #000 transparent;
             background-color: var(--skin);
             border-radius: 50%;
             z-index: 15;
@@ -118,8 +119,10 @@
             width: 300px;
             height: 300px;
             border: 10px solid #000;
-            background-color: transparent;
+            border-color: transparent transparent #000 transparent;
+            background-color: var(--skin);
             border-radius: 50%;
+            z-index: 4;
         }
 
         .lowerlip {
@@ -173,9 +176,35 @@
             <div class="pupil right"></div>
             <div class="nose"></div>
             <div class="upperlip"></div>
-            <div class="lowerlip"></div>
+            <div class="lowerlip mouth"></div>
             <div class="tongue"></div>
         </div>
     </div>
 </body>
 </html>
+
+<!-- 1. css로 계란형 만드는 방법? -->
+<!--
+     #egg {
+      display: block;
+      width: 126px;
+      height: 180px;
+      background-color: red;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    } 
+-->
+<!-- 2. css로 부채꼴 만드는 방법? -->
+<!-- 
+    #cone {
+      width: 0;
+      height: 0;
+      border-left: 70px solid transparent;
+      border-right: 70px solid transparent;
+      border-top: 100px solid red;
+      border-radius: 50%;
+    }
+ -->
+ <!-- 3. css로 교집합 표현하기 -->
+ <!-- 
+     참고: https://stackoverflow.com/questions/46783057/circle-circle-intersection-in-css
+  -->
