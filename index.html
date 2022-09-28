@@ -10,7 +10,7 @@
         /* setting */
         :root {
             --skin: #ffd1bc;
-            --hair: #a7ddda;
+            --hair: #78350c;
         }
 
         /* reset */
@@ -34,6 +34,30 @@
             height: 400px;
         }
 
+        .cap {
+            position: absolute;
+            bottom: 330px;
+            left: 40px;
+            width: 260px;
+            height: 150px;
+            border-radius: 150px 150px 0 0;
+            border: 10px solid #000;
+            background-color: navy;
+            z-index: 40;
+            transform: rotate(-10deg);
+        }
+
+        .cap::after{
+            content: "P";
+            font-size: 80px;
+            color: white;
+            height: 140px;
+            padding: 50px 0 0 150px;
+            display: inline-block;
+            width:300px;
+            border-bottom: 10px solid #000;
+        }
+
         .face {
             position: absolute;
             top: -10px;
@@ -41,7 +65,7 @@
             height: 700px;
             border: 10px solid #000;
             border-radius: 50%;
-            background: transparent;
+            background: var(--skin);
         }
 
         .hair{
@@ -53,9 +77,8 @@
             height: 400px;
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
             border: 10px solid #000;
-            background: var(--skin);
-            z-index: 3;
-
+            background: var(--hair);
+            overflow: hidden;
         }
 
         .eye {
@@ -66,11 +89,12 @@
             border: 10px solid #000;
             background-color: white;
             border-radius: 50%;
+            overflow: hidden;
         }
 
         .eye.left{
             left: 160px;
-            z-index: 20;
+            z-index: 30;
         }
 
         .eye.right{
@@ -80,7 +104,7 @@
 
         .pupil{
             position: absolute;
-            top: 130px;
+            top: 70px;
             width: 40px;
             height: 70px;
             border: 10px solid #000;
@@ -89,13 +113,11 @@
         }
 
         .pupil.left {
-            left: 210px;
-            z-index: 30;
+            left: 30px;
         }
 
         .pupil.right {
-            right: 70px;
-            z-index: 10;
+            right: 0px;
         }
 
         .nose {
@@ -108,21 +130,28 @@
             border-color: #000 #000 #000 transparent;
             background-color: var(--skin);
             border-radius: 50%;
-            z-index: 15;
+            z-index: 20;
             transform: rotate(-10deg);
         }
 
+        #upperlip {
+            position: absolute;
+            bottom: 110px;
+            left: 67px;
+            z-index: 10;
+        }
+
+
         .upperlip {
             position: absolute;
-            bottom: 118px;
-            left: 70px;
             width: 300px;
-            height: 300px;
-            border: 10px solid #000;
-            border-color: transparent transparent #000 transparent;
-            background-color: var(--skin);
-            border-radius: 50%;
-            z-index: 4;
+            height: 150px;
+            bottom: 125px;
+            left: 106px;
+            border-radius: 0 0 150px 150px;
+            background: var(--skin);
+            z-index: 5;
+            transform: rotate(-30deg);
         }
 
         .lowerlip {
@@ -157,53 +186,95 @@
             width: 80px;
             height: 60px;
             border: 10px solid #000;
+            border-color: #000 transparent #000 #000;
             background-color: transparent;
             border-radius: 50%;
             transform: rotate(30deg);
+            background: var(--skin);
+            overflow: hidden;
+        }
+
+        .earhole {
+            position: absolute;
+            top: 12px;
+            left: -8px;
+            width: 80px;
+            height: 60px;
+            border: 10px solid #000;
+            border-color: #000 transparent transparent transparent;
+            background-color: transparent;
+            border-radius: 50%;
+            transform: rotate(20deg);
+            background: var(--skin);
         }
 
     </style>
 </head>
 <body>
     <div class="Pungya">
-        <div class="hat"></div>
+        <div class="cap"></div>
         <div class="hair">
             <div class="face"></div>
-            <div class="ear"></div>
-            <div class="earhole"></div>
-            <div class="eye left"></div>
-            <div class="pupil left"></div>
-            <div class="eye right"></div>
-            <div class="pupil right"></div>
+            <div class="ear">
+                <div class="earhole"></div>
+            </div>
+            <div class="eye left">
+                <div class="pupil left"></div>
+            </div>
+            <div class="eye right">
+                <div class="pupil right"></div>
+            </div>
             <div class="nose"></div>
+            <canvas id="upperlip" width="310" height="310">
+                Your browser does not support the HTML5 canvas tag.</canvas>
             <div class="upperlip"></div>
             <div class="lowerlip mouth">
                 <div class="tongue"></div>
             </div>
         </div>
     </div>
-    <pie class="ten"></pie>
+        
+    <script>
+        var c = document.getElementById("upperlip");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.strokeStyle = "black";
+        ctx.fillStyle = "rgb(255, 209, 188)";
+        ctx.lineWidth = 10;
+        ctx.arc(150, 150, 150, (Math.PI/180)*100, (Math.PI/180)*409, true);
+        ctx.fill();
+        ctx.stroke();
+    </script> 
 </body>
 </html>
 
 <!-- 1. css로 계란형 만드는 방법? -->
 <!--
-     #egg {
-      display: block;
-      width: 126px;
-      height: 180px;
-      background-color: red;
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      참고: https://css-tricks.com/the-shapes-of-css/
+    #egg {
+        display: block;
+        width: 126px;
+        height: 180px;
+        background-color: red;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        참고: https://css-tricks.com/the-shapes-of-css/
     } 
 -->
 <!-- 2. css로 부채꼴 만드는 방법? -->
 <!-- 
+css 자체로 구현하는 방법이 찾기 어려워서 html canvas arc() 메서드를 사용해보기로 함.
 
-    참고: https://codepen.io/ant1mas/pen/MeJjaK
+ctx.strokeStyle 테두리 스타일
+ctx.fillStyle 배경 테두리
+ctx.lineWidth 테두리 두께
+ctx.arc(x, y, 반지름, 시작, 마무리, [true: 안쪽, false:바깥쪽]);
+ctx.fill() 위에서 설정한 배경 실행
+ctx.stroke() 위에서 설정한 테두리 실행
 
- -->
- <!-- 3. css로 교집합 표현하기 -->
- <!-- 
-     참고: https://stackoverflow.com/questions/46783057/circle-circle-intersection-in-css
-  -->
+https://www.w3schools.com/tags/canvas_arc.asp
+-->
+
+<!-- 3. css로 두 요소 교집합 표현하기(intersection) -->
+<!--
+    부모 자식 관계로 수정한뒤, overflow: hidden으로 교집합된 부분을 css로 표현할 수 있다.
+    참고: https://stackoverflow.com/questions/46783057/circle-circle-intersection-in-css
+-->
