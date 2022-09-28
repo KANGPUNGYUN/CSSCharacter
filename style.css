@@ -1,0 +1,347 @@
+/* animation */
+        
+@keyframes 얼굴 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes 눈썹오른쪽 {
+    from {
+        transform: rotate(-50deg);
+    }
+
+    to {
+        transform: rotate(-70deg);
+    }
+}
+
+@keyframes 눈썹왼쪽 {
+    from {
+        transform: rotate(50deg);
+    }
+
+    to {
+        transform: rotate(70deg);
+    }
+}
+
+@keyframes 눈꺼풀 {
+        from {
+            transform: translateY(10px);
+        }
+
+        to {
+            transform: translateY(100px);
+        }
+    }
+
+@keyframes 침 {
+    from {
+        height: 20px;
+    }
+
+    to {
+        height: 60px;
+    }
+}
+
+/* setting */
+:root {
+    --skin: #ffd1bc;
+    --hair: #78350c;
+}
+
+/* reset */
+body {
+    margin: 0;
+    padding: 0;
+}
+/* layout */
+/* design */
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+.Pungya{
+
+    position: relative;
+    top: 100px;
+    margin: 50px auto;
+    width: 400px;
+    height: 400px;
+    animation: 얼굴 2s infinite alternate;
+
+}
+
+.cap {
+    position: absolute;
+    bottom: 330px;
+    left: 40px;
+    width: 260px;
+    height: 150px;
+    border-radius: 150px 150px 0 0;
+    border: 10px solid #4f66ff;
+    background-color: #000080;
+    z-index: 100;
+    transform: rotate(-10deg);
+}
+
+.cap::after{
+    content: "P";
+    font-size: 80px;
+    color: #fff;
+    height: 140px;
+    padding: 30px 0 0 150px;
+    display: inline-block;
+    width:300px;
+    font-family: 'Satisfy', cursive;
+    border-bottom: 10px solid #4f66ff;
+}
+
+.face {
+    position: absolute;
+    top: -10px;
+    width: 700px;
+    height: 700px;
+    border: 10px solid #320303;
+    border-radius: 50%;
+    background: var(--skin);
+}
+
+.hair{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    border: 10px solid #000;
+    background: var(--hair);
+    overflow: hidden;
+}
+
+.eyebrow {
+    position: absolute;
+    top: 15px;
+    width: 40px;
+    height: 100px;
+    border: 10px solid #320303;
+    border-radius: 50%;
+    background-color: var(--hair);
+    z-index: 90;
+}
+
+.eyebrow.left {
+    left: 160px;
+    transform: rotate(50deg);
+    animation: 눈썹왼쪽 3s infinite alternate;
+}
+.eyebrow.right {
+    right: 70px;
+    transform: rotate(-50deg);
+    animation: 눈썹오른쪽 3s infinite alternate;
+}
+
+.eye {
+    position: absolute;
+    top: 60px;
+    width: 90px;
+    height: 160px;
+    border: 10px solid #000;
+    background-color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.eye.left{
+    left: 160px;
+    z-index: 70;
+}
+
+.eye.right{
+    right: 70px;
+    z-index: 40;
+}
+
+.eyelid {
+    position: absolute;
+    bottom: 100px;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    border: 10px solid #000;
+    background-color: var(--skin);
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 80;
+    animation: 눈꺼풀 2s infinite alternate;
+
+}
+.eyelid.left {
+    left: -300px;
+}
+.eyelid.right {
+    right: -310px;
+}
+
+.pupil {
+    position: absolute;
+    top: 70px;
+    width: 40px;
+    height: 70px;
+    border: 10px solid #000;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.pupil.left {
+    left: 30px;
+}
+
+.pupil.right {
+    right: 0px;
+}
+
+.darkcircle {
+    position: absolute;
+    top: 175px;
+    left: 170px;
+    width: 50px;
+    height: 50px;
+    background-color: #00000033;
+    border-radius: 50%;
+    z-index: 60;
+}
+
+.nose {
+    position: absolute;
+    top: 190px;
+    left: 210px;
+    width: 70px;
+    height: 60px;
+    border: 10px solid #000;
+    border-color: #000 #000 #000 transparent;
+    background-color: var(--skin);
+    border-radius: 50%;
+    z-index: 50;
+    transform: rotate(-10deg);
+}
+
+.drool{
+    position: absolute;
+    top: 315px;
+    left: 200px;
+    width: 10px;
+    height: 20px;
+    background-color: #00ffff;
+    border-radius: 5px;
+    z-index: 50;
+    animation: 침 6s infinite linear;
+}
+
+#upperlip {
+    position: absolute;
+    bottom: 110px;
+    left: 67px;
+    z-index: 30;
+}
+
+
+.upperlip {
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    bottom: 125px;
+    left: 106px;
+    border-radius: 0 0 150px 150px;
+    background: var(--skin);
+    z-index: 20;
+    transform: rotate(-30deg);
+}
+
+.lowerlip {
+    position: absolute;
+    top: 190px;
+    left: 190px;
+    width: 90px;
+    height: 160px;
+    border: 10px solid #000;
+    background-color: #9c283a;
+    border-radius: 50%;
+    overflow:hidden;
+}
+
+.tongue{
+    position: absolute;
+    top: 80px;
+    right: -30px;
+    width: 140px;
+    height: 140px;
+    border: 10px solid #000;
+    background-color: #bd5264;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.ear{
+    position: absolute;
+    top: 180px;
+    left: 0px;
+    width: 80px;
+    height: 60px;
+    border: 10px solid #000;
+    border-color: #000 transparent #000 #000;
+    background-color: transparent;
+    border-radius: 50%;
+    transform: rotate(30deg);
+    background: var(--skin);
+    overflow: hidden;
+}
+
+.earhole {
+    position: absolute;
+    top: 12px;
+    left: -8px;
+    width: 80px;
+    height: 60px;
+    border: 10px solid #000;
+    border-color: #000 transparent transparent transparent;
+    background-color: transparent;
+    border-radius: 50%;
+    transform: rotate(20deg);
+    background: var(--skin);
+}
+
+.laptop {
+    position: absolute;
+    top: 400px;
+    left: 60%;
+    width: 300px;
+    height: 200px;
+    background-color: #acabac;
+    border-radius: 20px;
+    border: 5px solid #46413d;
+    z-index: 110;
+}
+
+.laptop::before {
+    content: "🍎";
+    position: absolute;
+    left: -110px;
+    font-size: 60px;
+    color: #46413d;
+    height: 200px;
+    display: inline-block;
+    width:400px;
+    padding: 60px 0 0 220px;
+    border-radius: 0 0 10px 10px;
+    border-bottom: 10px solid #46413d;
+    font-family: 'Noto Emoji', sans-serif;
+}
