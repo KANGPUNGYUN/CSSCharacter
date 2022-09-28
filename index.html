@@ -135,12 +135,13 @@
             background-color: #9c283a;
             border-radius: 50%;
             z-index: 1;
+            overflow:hidden;
         }
 
         .tongue{
             position: absolute;
-            top: 280px;
-            left: 150px;
+            top: 80px;
+            right: -30px;
             width: 140px;
             height: 140px;
             border: 10px solid #000;
@@ -176,10 +177,12 @@
             <div class="pupil right"></div>
             <div class="nose"></div>
             <div class="upperlip"></div>
-            <div class="lowerlip mouth"></div>
-            <div class="tongue"></div>
+            <div class="lowerlip mouth">
+                <div class="tongue"></div>
+            </div>
         </div>
     </div>
+    <pie class="ten"></pie>
 </body>
 </html>
 
@@ -191,18 +194,14 @@
       height: 180px;
       background-color: red;
       border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      참고: https://css-tricks.com/the-shapes-of-css/
     } 
 -->
 <!-- 2. css로 부채꼴 만드는 방법? -->
 <!-- 
-    #cone {
-      width: 0;
-      height: 0;
-      border-left: 70px solid transparent;
-      border-right: 70px solid transparent;
-      border-top: 100px solid red;
-      border-radius: 50%;
-    }
+
+    참고: https://codepen.io/ant1mas/pen/MeJjaK
+
  -->
  <!-- 3. css로 교집합 표현하기 -->
  <!-- 
