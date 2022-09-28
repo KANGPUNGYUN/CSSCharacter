@@ -4,9 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Emoji&display=swap" rel="stylesheet">
     <title>PungYa</title>
     <style>
         /* animation */
+        
+        @keyframes 얼굴 {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(20deg);
+            }
+        }
+
+        @keyframes 눈썹오른쪽 {
+            from {
+                transform: rotate(-50deg);
+            }
+
+            to {
+                transform: rotate(-70deg);
+            }
+        }
+
+        @keyframes 눈썹왼쪽 {
+            from {
+                transform: rotate(50deg);
+            }
+
+            to {
+                transform: rotate(70deg);
+            }
+        }
+
+        @keyframes 눈꺼풀 {
+                from {
+                    transform: translateY(10px);
+                }
+
+                to {
+                    transform: translateY(100px);
+                }
+            }
+
+        @keyframes 침 {
+            from {
+                height: 20px;
+            }
+
+            to {
+                height: 60px;
+            }
+        }
+
         /* setting */
         :root {
             --skin: #ffd1bc;
@@ -32,6 +87,8 @@
             margin: 50px auto;
             width: 400px;
             height: 400px;
+            animation: 얼굴 2s infinite alternate;
+
         }
 
         .cap {
@@ -41,21 +98,22 @@
             width: 260px;
             height: 150px;
             border-radius: 150px 150px 0 0;
-            border: 10px solid #000;
-            background-color: navy;
-            z-index: 40;
+            border: 10px solid #4f66ff;
+            background-color: #000080;
+            z-index: 100;
             transform: rotate(-10deg);
         }
 
         .cap::after{
             content: "P";
             font-size: 80px;
-            color: white;
+            color: #fff;
             height: 140px;
-            padding: 50px 0 0 150px;
+            padding: 30px 0 0 150px;
             display: inline-block;
             width:300px;
-            border-bottom: 10px solid #000;
+            font-family: 'Satisfy', cursive;
+            border-bottom: 10px solid #4f66ff;
         }
 
         .face {
@@ -63,7 +121,7 @@
             top: -10px;
             width: 700px;
             height: 700px;
-            border: 10px solid #000;
+            border: 10px solid #320303;
             border-radius: 50%;
             background: var(--skin);
         }
@@ -81,34 +139,77 @@
             overflow: hidden;
         }
 
+        .eyebrow {
+            position: absolute;
+            top: 15px;
+            width: 40px;
+            height: 100px;
+            border: 10px solid #320303;
+            border-radius: 50%;
+            background-color: var(--hair);
+            z-index: 90;
+        }
+
+        .eyebrow.left {
+            left: 160px;
+            transform: rotate(50deg);
+            animation: 눈썹왼쪽 3s infinite alternate;
+        }
+        .eyebrow.right {
+            right: 70px;
+            transform: rotate(-50deg);
+            animation: 눈썹오른쪽 3s infinite alternate;
+        }
+
         .eye {
             position: absolute;
             top: 60px;
             width: 90px;
             height: 160px;
             border: 10px solid #000;
-            background-color: white;
+            background-color: #fff;
             border-radius: 50%;
             overflow: hidden;
         }
 
         .eye.left{
             left: 160px;
-            z-index: 30;
+            z-index: 70;
         }
 
         .eye.right{
             right: 70px;
-            z-index: 10;
+            z-index: 40;
         }
 
-        .pupil{
+        .eyelid {
+            position: absolute;
+            bottom: 100px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            border: 10px solid #000;
+            background-color: var(--skin);
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 80;
+            animation: 눈꺼풀 2s infinite alternate;
+
+        }
+        .eyelid.left {
+            left: -300px;
+        }
+        .eyelid.right {
+            right: -310px;
+        }
+
+        .pupil {
             position: absolute;
             top: 70px;
             width: 40px;
             height: 70px;
             border: 10px solid #000;
-            background-color: black;
+            background-color: #000;
             border-radius: 50%;
         }
 
@@ -118,6 +219,17 @@
 
         .pupil.right {
             right: 0px;
+        }
+
+        .darkcircle {
+            position: absolute;
+            top: 175px;
+            left: 170px;
+            width: 50px;
+            height: 50px;
+            background-color: #00000033;
+            border-radius: 50%;
+            z-index: 60;
         }
 
         .nose {
@@ -130,15 +242,27 @@
             border-color: #000 #000 #000 transparent;
             background-color: var(--skin);
             border-radius: 50%;
-            z-index: 20;
+            z-index: 50;
             transform: rotate(-10deg);
+        }
+
+        .drool{
+            position: absolute;
+            top: 315px;
+            left: 200px;
+            width: 10px;
+            height: 20px;
+            background-color: #00ffff;
+            border-radius: 5px;
+            z-index: 50;
+            animation: 침 6s infinite linear;
         }
 
         #upperlip {
             position: absolute;
             bottom: 110px;
             left: 67px;
-            z-index: 10;
+            z-index: 30;
         }
 
 
@@ -150,7 +274,7 @@
             left: 106px;
             border-radius: 0 0 150px 150px;
             background: var(--skin);
-            z-index: 5;
+            z-index: 20;
             transform: rotate(-30deg);
         }
 
@@ -163,7 +287,6 @@
             border: 10px solid #000;
             background-color: #9c283a;
             border-radius: 50%;
-            z-index: 1;
             overflow:hidden;
         }
 
@@ -176,7 +299,7 @@
             border: 10px solid #000;
             background-color: #bd5264;
             border-radius: 50%;
-            z-index: 2;
+            z-index: 10;
         }
 
         .ear{
@@ -208,6 +331,32 @@
             background: var(--skin);
         }
 
+        .laptop {
+            position: absolute;
+            top: 400px;
+            left: 60%;
+            width: 300px;
+            height: 200px;
+            background-color: #acabac;
+            border-radius: 20px;
+            border: 5px solid #46413d;
+            z-index: 110;
+        }
+
+        .laptop::before {
+            content: "🍎";
+            position: absolute;
+            left: -110px;
+            font-size: 60px;
+            color: #46413d;
+            height: 200px;
+            display: inline-block;
+            width:400px;
+            padding: 60px 0 0 220px;
+            border-radius: 0 0 10px 10px;
+            border-bottom: 10px solid #46413d;
+            font-family: 'Noto Emoji', sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -218,12 +367,17 @@
             <div class="ear">
                 <div class="earhole"></div>
             </div>
+            <div class="eyebrow left"></div>
+            <div class="eyebrow right"></div>
             <div class="eye left">
+                <div class="eyelid left"></div>
                 <div class="pupil left"></div>
             </div>
             <div class="eye right">
+                <div class="eyelid right"></div>
                 <div class="pupil right"></div>
             </div>
+            <div class="darkcircle"></div>
             <div class="nose"></div>
             <canvas id="upperlip" width="310" height="310">
                 Your browser does not support the HTML5 canvas tag.</canvas>
@@ -231,8 +385,11 @@
             <div class="lowerlip mouth">
                 <div class="tongue"></div>
             </div>
+            <div class="drool"></div>
         </div>
     </div>
+    <div class="laptop"></div>
+
         
     <script>
         var c = document.getElementById("upperlip");
@@ -261,19 +418,20 @@
 -->
 <!-- 2. css로 부채꼴 만드는 방법? -->
 <!-- 
-css 자체로 구현하는 방법이 찾기 어려워서 html canvas arc() 메서드를 사용해보기로 함.
+    css 자체로 구현하는 방법이 찾기 어려워서 html canvas arc() 메서드를 대안으로 사용해보기로 함.
+    정확히는 부채꼴이 아니라 원호를 생성할 수 있는 방법이다
 
-ctx.strokeStyle 테두리 스타일
-ctx.fillStyle 배경 테두리
-ctx.lineWidth 테두리 두께
-ctx.arc(x, y, 반지름, 시작, 마무리, [true: 안쪽, false:바깥쪽]);
-ctx.fill() 위에서 설정한 배경 실행
-ctx.stroke() 위에서 설정한 테두리 실행
+    ctx.strokeStyle 테두리 스타일
+    ctx.fillStyle 배경 테두리
+    ctx.lineWidth 테두리 두께
+    ctx.arc(x, y, 반지름, 시작, 마무리, [true: 안쪽, false:바깥쪽]);
+    ctx.fill() 위에서 설정한 배경 실행
+    ctx.stroke() 위에서 설정한 테두리 실행
 
-https://www.w3schools.com/tags/canvas_arc.asp
+    참고: https://www.w3schools.com/tags/canvas_arc.asp
 -->
 
-<!-- 3. css로 두 요소 교집합 표현하기(intersection) -->
+<!-- 3. css로 두 요소 교집합 부분 표현하기(intersection) -->
 <!--
     부모 자식 관계로 수정한뒤, overflow: hidden으로 교집합된 부분을 css로 표현할 수 있다.
     참고: https://stackoverflow.com/questions/46783057/circle-circle-intersection-in-css
